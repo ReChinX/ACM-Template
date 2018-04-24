@@ -1,0 +1,37 @@
+\section{Math}
+
+\subsection{快速傅里叶变换}
+时间复杂度$O(n \log n)$\\
+\lstinputlisting{"./math/fft.cpp"}
+
+\subsection{快速数论变换}
+时间复杂度$O(n\log n)$\\
+\lstinputlisting{"./math/ntt.cpp"}
+
+\subsubsection{三模数NTT}
+$m_1,m_2,m_3$为满足条件的模数，$P$为要求模数\\
+$$
+ \left\{
+\begin{aligned}
+ans \equiv a_1 \pmod{m_1} \\
+ans \equiv a_2 \pmod{m_2} \\
+ans \equiv a_3 \pmod{m_3}
+\end{aligned}
+\right.
+$$\\
+$A = a_1m_1((m_2 \mod m_1)^{m_1-2}\mod m_1) + a_2m_2((m_1 \mod m_2)^{m_2-2}\mod m_2) \pmod{M}, M = m_1m_2$\\
+$k \equiv (a_3-A)M^{-1} \pmod{m_3}$\\
+$ans \equiv kM + A \pmod{P}$\\
+
+\lstinputlisting{"./math/ntt(mod_any_prime_3_mod).cpp"}
+
+\subsubsection{多项式求逆}
+$A(x)B(x)\equiv 1 \pmod{x^n}$ 称$B(x)$为$A(x)$在模$x^n$意义下的逆\\
+假设已经求出$B'(x)$为模$x^{\lceil\frac{x}{2}\rceil}$的逆\\
+$B(x)\equiv (2-A(x)B'(x))B'(x) \pmod{x^{n}}$\\
+时间复杂度$O(n\log n)$\\
+\lstinputlisting{"./math/polynomial_inverse(ntt).cpp"}
+
+\subsection{线性基}
+时间复杂度$O(MAX_BASE*N)$\\
+\lstinputlisting{"./math/linearbase.cpp"}

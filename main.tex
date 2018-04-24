@@ -1,0 +1,67 @@
+\documentclass[a4paper, 12pt]{article}
+
+\setlength{\columnsep}{0.8cm}
+\usepackage{xeCJK}
+\setsansfont{Source Code Pro}
+
+\setCJKmainfont{SimHei}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{SimHei}
+
+\usepackage[
+CJKbookmarks=true,
+colorlinks,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black
+]{hyperref}
+
+\usepackage{accsupp}
+% copy from pdf without numbers
+\newcommand\emptyaccsupp[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+\usepackage{listings}
+% code style settings
+\lstset{
+	language=C++,
+	breaklines=true,
+	tabsize=4,
+	basicstyle=\sf\footnotesize,
+	numberstyle=\emptyaccsupp,
+	commentstyle=\sf\footnotesize,
+	numbers=left,
+	frame=leftline,
+	columns=fullflexible,
+	showstringspaces=false,
+	extendedchars=true
+}
+
+\usepackage{geometry}
+\geometry{left=2cm,right=1cm,top=1.2cm,bottom=1.5cm,headsep=0.1cm,footnotesep=0.1cm}
+\usepackage{courier}
+
+
+\AtBeginDvi{\special{pdf:tounicode UTF8-UCS2}}
+
+\usepackage{fancyhdr}
+
+\usepackage{sectsty}
+\sectionfont{\large}
+\subsectionfont{\normalsize}
+\subsubsectionfont{\small}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\usepackage{indentfirst}
+\setlength{\parindent}{0em}
+
+\begin{document}
+	\input{setting.tex}
+	\input{title.tex}
+	\tableofcontents\clearpage
+	\input{datastructure.tex}
+	\input{math.tex}
+	\input{dp.tex}
+	\input{graph.tex}
+	\input{string.tex}
+\end{document}
