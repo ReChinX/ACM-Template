@@ -1,1 +1,30 @@
 \section{String}
+
+\subsection{AC自动机}
+fail[i]指向$i$节点对应字符串的最长后缀的节点
+复杂度$O(len)$
+\lstinputlisting{"./string/ac_automacine.cpp"}
+
+\subsection{后缀自动机}
+$Right_{fa}=\sum_{u \in son} Right_u$\\
+$Maxlen(Parent(s))=Min(s) - 1$\\
+从当前状态节点沿$Parent$往上一直走到根节点代表当前状态节点对应的子串的所有后缀\\
+每个状态的$Right$大小就是该状态下的子串出现的次数\\
+后缀自动机中的一个状态$s$代表了一个$Right$集合的等价类，也就是满足$Right(a)$等于$Right(s)$的所有的字符串$a$的集合，对于$Right(s)$，适合它的子串的长度在一个范围内，记做$[Min(s),Max(s)]$\\
+时间复杂度$O(n)$\\
+\lstinputlisting{"./string/sam.cpp"}
+
+\subsection{扩展KMP}
+母串为$S$,模式串为$T$,extend[i]表示$S$以$i$开头的后缀与$T$的最长公共前缀\\
+\lstinputlisting{"./string/exkmp.cpp"}
+
+\subsection{回文自动机}
+fail指向$i$节点对应回文串的最长的回文后缀节点\\
+cnt记录回文串出现次数\\
+len表示回文串长度
+\lstinputlisting{"./string/pam.cpp"}
+
+\subsection{Manacher}
+p[i]表示从$i$(包括$i$)往两边可以得到的最大回文串的长度\\
+时间复杂度$O(len)$
+\lstinputlisting{"./string/manacher.cpp"}

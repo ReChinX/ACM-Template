@@ -1,9 +1,12 @@
 \section{Math}
 
 \subsection{快速傅里叶变换}
+\subsubsection{普通FFT}
 时间复杂度$O(n \log n)$\\
 \lstinputlisting{"./math/fft.cpp"}
-
+\subsubsection{任意模数FFT}
+时间复杂度$O(n\log n)$\\
+\lstinputlisting{"./math/fft_mod_any_prime.cpp"}
 \subsection{快速数论变换}
 时间复杂度$O(n\log n)$\\
 \lstinputlisting{"./math/ntt.cpp"}
@@ -35,3 +38,63 @@ $B(x)\equiv (2-A(x)B'(x))B'(x) \pmod{x^{n}}$\\
 \subsection{线性基}
 时间复杂度$O(MAX\_BASE*N)$\\
 \lstinputlisting{"./math/linearbase.cpp"}
+
+\subsection{Berlekamp-Massey}
+在$O(N^2)$的时间内求解一个长度为$N$的数列的最短线性递推式\\
+\lstinputlisting{"./math/berlekamp-massey.cpp"}
+
+\subsection{FWT}
+$c_k=\sum_{i \oplus j} a_i*b_j$ \\
+时间复杂度$O(n\log n)$\\
+\lstinputlisting{"./math/fwt.cpp"}
+
+\subsection{线性预处理逆元，阶乘以及阶乘逆元}
+时间复杂度$O(n)$\\
+\lstinputlisting{"./math/inverse.cpp"}
+
+\subsection{拉格朗日插值}
+知道一个$deg$次多项式，知道$deg+1$个点就能确定整个多项式在任一点的值\\
+时间复杂度$O(deg)$\\
+\lstinputlisting{"./math/lagrange.cpp"}
+
+\subsection{莫比乌斯反演}
+莫比乌斯反演\\
+$f(n)=\sum_{d|n}g(d) \Rightarrow g(n) = \sum_{d|n}\mu(d)f(\lfloor{n\over d}\rfloor)$ \\
+$f(n)=\sum_{n|d}g(d) \Rightarrow g(n) = \sum_{n|d}\mu(\lfloor{d\over n}\rfloor)f(d)$ \\
+莫比乌斯线性筛\\
+时间复杂度$O(n)$ \\
+\lstinputlisting{"./math/mobius_sieve.cpp"}
+
+\subsection{质因数分解}
+\subsubsection{暴力}
+复杂度$O(\text{质因数种类}\sqrt{n})$
+\lstinputlisting{"./math/brute_factor.cpp"}
+\subsubsection{PollardRho}
+复杂度$O(n^{1\over 4})$
+\lstinputlisting{"./math/pollardrho.cpp"}
+
+\subsection{杜教筛}
+\subsubitem{Mertens函数}
+复杂度$O(n^{2\over 3})$
+\lstinputlisting{"./math/mertens.cpp"}
+
+\subsection{求原根}
+\lstinputlisting{"./math/primitive_root.cpp"}
+
+\subsection{Lucas定理}
+大组合数取模\\
+时间复杂度$O(\log_{p}n)$\\
+\lstinputlisting{"./math/lucas.cpp"}
+\subsubsection{扩展Lucas定理}
+\lstinputlisting{"./math/exlucas.cpp"}
+
+\subsection{BSGS}
+求解最小的非负整数$x$满足$a^x \equiv b \pmod{p}$\\
+时间复杂度$O(\sqrt n)$\\
+\lstinputlisting{"./math/bsgs.cpp"}
+\subsubsection{扩展BSGS}
+\lstinputlisting{"./math/exbsgs.cpp"}
+
+\subsection{矩阵快速幂}
+\lstinputlisting{"./math/matrix_power.cpp"}
+

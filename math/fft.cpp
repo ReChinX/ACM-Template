@@ -1,5 +1,6 @@
 /**
  * type = 1 for dft and type = -1 for idft
+ * n 为fft长度;int len = 1; while(len < 2*p) len<<=1;
  * */
 const double pi = acos(-1.0);
 struct Complex{

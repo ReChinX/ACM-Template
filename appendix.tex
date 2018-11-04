@@ -1,0 +1,56 @@
+\section{Appendix}
+
+\subsection{公式}
+
+\subsubsection{BEST Theorem}
+求解有向图欧拉回路个数 \\
+$ec(G)=t_w(G)\prod_{v \in \mathbf{V}}(deg(v) - 1 )!$ \\
+$t_w(G)$表示以$w$为根的生成树的个数，$deg(v)$表示顶点$v$的入度
+
+\subsubsection{Vandermonde's identity}
+$\binom{n+m}{r}=\sum_{k=0}^{r}\binom{m}{k}\binom{n}{r-k}$
+
+\subsubsection{Pell's equation}
+$x^2-ny^2=1$\\
+$
+\left\{
+\begin{aligned}
+&x_{k+1}=x_1x_k+ny_1y_k \\
+&y_{k+1}=x_1y_k+y_1x_k
+\end{aligned}
+\right.
+$\\
+$x_1,y_1$是最小化$x$时的最小解
+
+\subsubsection{Prefix sum of Euler Function}
+利用$\sum_{d|n}{\varphi(d)}=n$\\
+得到$\phi(n)=\sum_{i=1}^{n}{\varphi(i)}=\frac{n\cdot(n+1)}{2}-\sum_{i=2}^{n}{\phi(\lfloor\frac{n}{i}\rfloor)}$
+
+\subsubsection{Mertens Function}
+利用$[n=1]=\sum_{d|n}{\mu(d)}$\\
+得到$M(n)=1-\sum_{i=2}^{n}{M(\lfloor\frac{n}{i}\rfloor)}$
+
+\subsubsection{Lindström–Gessel–Viennot lemma}
+$M = \begin{pmatrix} e(a_1,b_1) & e(a_1,b_2) & \cdots & e(a_1,b_n) \\ e(a_2,b_1) & e(a_2,b_2) & \cdots & e(a_2,b_n) \\ \vdots & \vdots & \ddots & \vdots \\ e(a_n,b_1) & e(a_n,b_2) & \cdots & e(a_n,b_n) \end{pmatrix}$\\
+$e(a,b)$表示图上点$a$到点$b$的方案数\\
+对于一张无边权DAG图，给定$n$个起点$a_1,a_2...a_n$和终点$b_1,b_2...b_n$，这$n$条不相交路径方案数等于$\det(M)$\\
+
+\subsubsection{全错位排列公式}
+$D_n=(n-1)(D_{n-1}-D_{n-2}),D_0=1,D_1=1$
+
+\subsubsection{常用反演公式}
+$gcd(i,j)=\sum_{d|gcd(i,j)}\varphi(d)$ \\
+$[n=1]=\sum_{d|n}\mu(d)$\\
+$n=\sum_{d|n}\varphi(d)$
+
+\subsubsection{二项式反演}
+$f_n=\sum_{i=0}^{n}(-1)^i\binom{n}{i}g_i \Leftrightarrow g_n=\sum_{i=0}^{n}(-1)^i\binom{n}{i}f_i$ \\
+$f_n=\sum_{i=0}^{n}\binom{n}{i}g_i \Leftrightarrow g_n=\sum_{i=0}^{n}(-1)^{n-i}\binom{n}{i}f_i$ \\
+
+\subsection{TIPS}
+\subsubsection{网络流常见模型}
+\begin{enumerate}
+	\item 最大权闭合子图模型: s练正权点，负权点练t ，最大权闭合图权值 = 正权和 – 最小割（最大流）
+	\item DAG最小路径覆盖: 把n个点拆成2n个形成二分图， 按图中的边建好，相当于跑一个二分图匹配， 答案是n – 最大流
+	\item k条不同最短路(让你选k条路径从1 到n 并且这些路径不会重复使用一条边，每条边是有权值的，问在这种情况下选出的k条路径的权值之和最小是多少): 用最大流，给每条边的流量设置为1，跑一次最大流， n 与 t 之间设置为k。又因为要求最小费用所以用费用流
+\end{enumerate}
